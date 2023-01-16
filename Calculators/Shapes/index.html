@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>TEST</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1>Калькуляторы фигур на JavaScript</h1>
+      <div class="box">
+        <h3>Площадь и периметр квадрата</h3>
+        <label class="box__label"></label>
+        <input
+          class="box__side"
+          type="number"
+          id="box"
+          placeholder="Длина стороны"
+        />
+        <button class="box__btn">Рассчитать</button>
+        <div class="box-results">
+          <p class="box__quade"></p>
+          <p class="box__perimetr"></p>
+        </div>
+      </div>
+
+      <h3>Площадь и периметр прямоугольника</h3>
+      <input
+        class="rectangle__long-side"
+        type="number"
+        placeholder="Длинная сторона"
+      />
+      <input
+        class="rectangle__short-side"
+        type="number"
+        placeholder="Короткая сторона"
+      />
+      <button class="rectangle__square">Площадь прямоугольника</button>
+      <button class="rectangle__perimetr">Периметр прямоугольника</button>
+      <p class="rectangle__result"></p>
+
+      <h3>Площадь круга и длину окружности</h3>
+      <input type="number" class="circle__radius" placeholder="Радиус круга" />
+      <button class="circle__square">Площадь круга</button>
+      <button class="circle__length">Длина окружности</button>
+      <p class="circle__result"></p>
+
+      <h3>Площадь треугольника по трем сторонам</h3>
+      <input
+        class="triangle__first-side"
+        type="number"
+        placeholder="Первая сторона"
+      />
+      <input
+        class="triangle__second-side"
+        type="number"
+        placeholder="Вторая сторона"
+      />
+      <input
+        class="triangle__third-side"
+        type="number"
+        placeholder="Третья сторона"
+      />
+      <button class="triangle__squre">Площадь треугольника</button>
+      <p class="triangle__result"></p>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
