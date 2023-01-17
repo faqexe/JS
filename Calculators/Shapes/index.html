@@ -68,24 +68,33 @@
         </div>
       </div>
 
-      <h3>Площадь треугольника по трем сторонам</h3>
-      <input
-        class="triangle__first-side"
-        type="number"
-        placeholder="Первая сторона"
-      />
-      <input
-        class="triangle__second-side"
-        type="number"
-        placeholder="Вторая сторона"
-      />
-      <input
-        class="triangle__third-side"
-        type="number"
-        placeholder="Третья сторона"
-      />
-      <button class="triangle__squre">Площадь треугольника</button>
-      <p class="triangle__result"></p>
+      <div class="triangle">
+        <div class="triangle__header">
+          <h3>Площадь разностороннего треугольника по трем сторонам (формула Герона)</h3>
+          <label class="triangle__label-one"></label>
+          <input
+            class="triangle__first-side"
+            type="number"
+            placeholder="Первая сторона"
+          />
+          <label class="triangle__label-two"></label>
+          <input
+            class="triangle__second-side"
+            type="number"
+            placeholder="Вторая сторона"
+          />
+          <label class="triangle__label-three"></label>
+          <input
+            class="triangle__third-side"
+            type="number"
+            placeholder="Третья сторона"
+          />
+          <button class="triangle__square">Рассчитать</button>
+        </div>
+        <div class="triangle-results">
+          <p class="triangle__result"></p>
+        </div>
+      </div>
     </div>
 
     <script src="js/script.js"></script>

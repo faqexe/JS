@@ -36,6 +36,8 @@ boxSide.addEventListener("focus", function () {
 boxButton.addEventListener("click", function () {
   if (boxSide.value == "") {
     attention.textContent = "Поле не заполнено";
+    attention.style.fontSize = LABEL_SIZE;
+    attention.style.color = ATTENTION_COLOR;
   } else if (boxSide.value <= 0) {
     attention.textContent = "Некоректное значение";
   } else {
@@ -96,13 +98,22 @@ recShort.addEventListener("focus", function () {
 recButton.addEventListener("click", function () {
   if (recLong.value == "") {
     recLabelOne.textContent = "Поле не заполнено";
+    recLabelOne.style.fontSize = LABEL_SIZE;
+    recLabelOne.style.color = ATTENTION_COLOR;
   } else if (recShort.value == "") {
     recLabelTwo.textContent = "Поле не заполнено";
+    recLabelTwo.style.fontSize = LABEL_SIZE;
+    recLabelTwo.style.color = ATTENTION_COLOR;
   } else if (recLong.value <= 0) {
     recLabelOne.textContent = "Некорректное значение";
   } else if (recShort.value <= 0) {
     recLabelTwo.textContent = "Некорректное значение";
+  } else if (recLong.value == recShort.value) {
+    recQuad.textContent =
+      "Вы ввели одинаковые значения. Если фигура является квадратом, воспользуйтесь формой выше";
+    recQuad.style.color = ATTENTION_COLOR;
   } else {
+    recQuad.style.color = "";
     recQuad.textContent =
       "Площадь прямоугольника:" +
       " " +
@@ -145,6 +156,8 @@ circleRadius.addEventListener("focus", function () {
 cirButton.addEventListener("click", function () {
   if (circleRadius.value == "") {
     cirLabel.textContent = "Поле не заполнено";
+    cirLabel.style.fontSize = LABEL_SIZE;
+    cirLabel.style.color = ATTENTION_COLOR;
   } else if (circleRadius.value <= 0) {
     cirLabel.textContent = "Некоректное значение";
   } else {
@@ -159,53 +172,91 @@ cirButton.addEventListener("click", function () {
 const firstSide = document.querySelector(".triangle__first-side");
 const secondSide = document.querySelector(".triangle__second-side");
 const thirdSide = document.querySelector(".triangle__third-side");
-const triangleQuad = document.querySelector(".triangle__squre");
+const triangleQuad = document.querySelector(".triangle__square");
 const triangleResult = document.querySelector(".triangle__result");
+const triLabelOne = document.querySelector(".triangle__label-one");
+const triLabelTwo = document.querySelector(".triangle__label-two");
+const triLabelThree = document.querySelector(".triangle__label-three");
 
 firstSide.addEventListener("blur", function () {
   if (firstSide.value == "") {
-    triangleResult.textContent = "Заполните поле";
-    triangleResult.style.color = ATTENTION_COLOR;
-    firstSide.style.borderColor = ATTENTION_COLOR;
+    triLabelOne.textContent = "Заполните поле";
+    triLabelOne.style.color = ATTENTION_COLOR;
+    triLabelOne.style.fontSize = LABEL_SIZE;
+  } else if (firstSide.value <= 0) {
+    triLabelOne.style.fontSize = LABEL_SIZE;
+    triLabelOne.style.color = ATTENTION_COLOR;
+    triLabelOne.textContent = "Введите значение больше 0";
   } else {
-    triangleResult.textContent = "";
-    triangleResult.style.color = "";
-    firstSide.style.borderColor = "";
+    triLabelOne.textContent = "";
+    triLabelOne.style.color = "";
+    triLabelOne.style.fontSize = "";
   }
+});
+
+firstSide.addEventListener("focus", function () {
+  firstSide.value = "";
+  triangleResult.textContent = "";
 });
 
 secondSide.addEventListener("blur", function () {
   if (secondSide.value == "") {
-    triangleResult.textContent = "Заполните поле";
-    triangleResult.style.color = ATTENTION_COLOR;
-    secondSide.style.borderColor = ATTENTION_COLOR;
+    triLabelTwo.textContent = "Заполните поле";
+    triLabelTwo.style.color = ATTENTION_COLOR;
+    triLabelTwo.style.fontSize = LABEL_SIZE;
+  } else if (secondSide.value <= 0) {
+    triLabelTwo.style.fontSize = LABEL_SIZE;
+    triLabelTwo.style.color = ATTENTION_COLOR;
+    triLabelTwo.textContent = "Введите значение больше 0";
   } else {
-    triangleResult.textContent = "";
-    triangleResult.style.color = "";
-    secondSide.style.borderColor = "";
+    triLabelTwo.textContent = "";
+    triLabelTwo.style.color = "";
+    triLabelTwo.style.fontSize = "";
   }
+});
+
+secondSide.addEventListener("focus", function () {
+  secondSide.value = "";
+  triangleResult.textContent = "";
 });
 
 thirdSide.addEventListener("blur", function () {
   if (thirdSide.value == "") {
-    triangleResult.textContent = "Заполните поле";
-    triangleResult.style.color = ATTENTION_COLOR;
-    thirdSide.style.borderColor = ATTENTION_COLOR;
+    triLabelThree.textContent = "Заполните поле";
+    triLabelThree.style.color = ATTENTION_COLOR;
+    triLabelThree.style.fontSize = LABEL_SIZE;
+  } else if (thirdSide.value <= 0) {
+    triLabelThree.style.fontSize = LABEL_SIZE;
+    triLabelThree.style.color = ATTENTION_COLOR;
+    triLabelThree.textContent = "Введите значение больше 0";
   } else {
-    triangleResult.textContent = "";
-    triangleResult.style.color = "";
-    thirdSide.style.borderColor = "";
+    triLabelThree.textContent = "";
+    triLabelThree.style.color = "";
+    triLabelThree.style.fontSize = "";
   }
 });
 
+thirdSide.addEventListener("focus", function () {
+  thirdSide.value = "";
+  triangleResult.textContent = "";
+});
+
 function triQuad() {
+  //* Дописать проверку на равносторонний и равнобедренный треугольники
+  //* Выводить текст - Треугольник (вид). Воспользуйтесь другой формулой для нахождения его площади
   // Проверка существования треугольника
   if (
-    firstSide.value < Number(secondSide.value) + Number(thirdSide.value) &&
-    secondSide.value < Number(thirdSide.value) + Number(thirdSide.value) &&
-    thirdSide.value < Number(thirdSide.value) + Number(secondSide.value)
+    Number(firstSide.value) >
+      Number(secondSide.value) + Number(thirdSide.value) ||
+    Number(secondSide.value) >
+      Number(firstSide.value) + Number(thirdSide.value) ||
+    Number(thirdSide.value) > Number(firstSide.value) + Number(secondSide.value)
   ) {
-    // Вычисление по формуле Герона
+    triangleResult.textContent =
+      "Сумма двух сторон не может быть меньше третьей";
+    triangleResult.style.color = "red";
+  } else {
+    // Вычисление по формуле Герона для разностороннего треугольника
     let p =
       (Number(firstSide.value) +
         Number(secondSide.value) +
@@ -218,11 +269,30 @@ function triQuad() {
         (p - Number(secondSide.value)) *
         (p - Number(thirdSide.value))
     );
-  } else {
-    triangleResult.textContent =
-      "Сумма двух сторон не может быть меньше третьей";
-    triangleResult.style.color = "red";
+    triangleResult.style.color = "";
   }
 }
 
-triangleQuad.addEventListener("click", triQuad);
+triangleQuad.addEventListener("click", function () {
+  if (firstSide.value == "") {
+    triLabelOne.textContent = "Поле не заполнено";
+    triLabelOne.style.color = ATTENTION_COLOR;
+    triLabelOne.style.fontSize = LABEL_SIZE;
+  } else if (secondSide.value == "") {
+    triLabelTwo.textContent = "Поле не заполнено";
+    triLabelTwo.style.color = ATTENTION_COLOR;
+    triLabelTwo.style.fontSize = LABEL_SIZE;
+  } else if (thirdSide.value == "") {
+    triLabelThree.textContent = "Поле не заполнено";
+    triLabelThree.style.color = ATTENTION_COLOR;
+    triLabelThree.style.fontSize = LABEL_SIZE;
+  } else if (firstSide.value <= 0) {
+    triLabelOne.textContent = "Некорректное значение";
+  } else if (secondSide.value <= 0) {
+    triLabelTwo.textContent = "Некорректное значение";
+  } else if (thirdSide.value <= 0) {
+    triLabelThree.textContent = "Некорректное значение";
+  } else {
+    triQuad();
+  }
+});
