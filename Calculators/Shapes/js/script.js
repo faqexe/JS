@@ -30,54 +30,89 @@ boxSide.addEventListener("blur", function () {
 boxSide.addEventListener("focus", function () {
   boxQuad.textContent = "";
   boxPerimetr.textContent = "";
+  boxSide.value = "";
 });
 
 boxButton.addEventListener("click", function () {
-  boxQuad.textContent = "Площадь квадрата:" + " " + boxSide.value ** 2;
-  boxPerimetr.textContent = "Периметр квадрата:" + " " + boxSide.value * 4;
+  if (boxSide.value == "") {
+    attention.textContent = "Поле не заполнено";
+  } else if (boxSide.value <= 0) {
+    attention.textContent = "Некоректное значение";
+  } else {
+    boxQuad.textContent = "Площадь квадрата:" + " " + boxSide.value ** 2;
+    boxPerimetr.textContent = "Периметр квадрата:" + " " + boxSide.value * 4;
+  }
 });
 
 // Прямоугольник
 const recLong = document.querySelector(".rectangle__long-side");
 const recShort = document.querySelector(".rectangle__short-side");
-const recSquare = document.querySelector(".rectangle__square");
-const recPerimetr = document.querySelector(".rectangle__perimetr");
-const recResult = document.querySelector(".rectangle__result");
-
-function recQuad() {
-  recResult.textContent = Number(recLong.value) * Number(recShort.value);
-}
-
-function recPer() {
-  recResult.textContent = 2 * (Number(recLong.value) + Number(recShort.value));
-}
+const recButton = document.querySelector(".rectangle__btn");
+const recQuad = document.querySelector(".rectangle__quad");
+const recPer = document.querySelector(".rectangle__perimetr");
+const recLabelOne = document.querySelector(".rec__label-one");
+const recLabelTwo = document.querySelector(".rec__label-two");
 
 recLong.addEventListener("blur", function () {
   if (recLong.value == "") {
-    recResult.textContent = "Заполните поле";
-    recResult.style.color = ATTENTION_COLOR;
-    recLong.style.borderColor = ATTENTION_COLOR;
+    recLabelOne.textContent = LABEL_TEXT;
+    recLabelOne.style.fontSize = LABEL_SIZE;
+    recLabelOne.style.color = ATTENTION_COLOR;
+  } else if (recLong.value <= 0) {
+    recLabelOne.style.fontSize = LABEL_SIZE;
+    recLabelOne.style.color = ATTENTION_COLOR;
+    recLabelOne.textContent = "Введите значение больше 0";
   } else {
-    recResult.textContent = "";
-    recResult.style.color = "";
-    recLong.style.borderColor = "";
+    recLabelOne.textContent = "";
   }
+});
+
+recLong.addEventListener("focus", function () {
+  recLong.value = "";
+  recQuad.textContent = "";
+  recPer.textContent = "";
 });
 
 recShort.addEventListener("blur", function () {
   if (recShort.value == "") {
-    recResult.textContent = "Заполните поле";
-    recResult.style.color = ATTENTION_COLOR;
-    recShort.style.borderColor = ATTENTION_COLOR;
+    recLabelTwo.textContent = LABEL_TEXT;
+    recLabelTwo.style.fontSize = LABEL_SIZE;
+    recLabelTwo.style.color = ATTENTION_COLOR;
+  } else if (recShort.value <= 0) {
+    recLabelTwo.style.fontSize = LABEL_SIZE;
+    recLabelTwo.style.color = ATTENTION_COLOR;
+    recLabelTwo.textContent = "Введите значение больше 0";
   } else {
-    recResult.textContent = "";
-    recResult.style.color = "";
-    recShort.style.borderColor = "";
+    recLabelTwo.textContent = "";
   }
 });
 
-recSquare.addEventListener("click", recQuad);
-recPerimetr.addEventListener("click", recPer);
+recShort.addEventListener("focus", function () {
+  recShort.value = "";
+  recQuad.textContent = "";
+  recPer.textContent = "";
+});
+
+recButton.addEventListener("click", function () {
+  if (recLong.value == "") {
+    recLabelOne.textContent = "Поле не заполнено";
+  } else if (recShort.value == "") {
+    recLabelTwo.textContent = "Поле не заполнено";
+  } else if (recLong.value <= 0) {
+    recLabelOne.textContent = "Некорректное значение";
+  } else if (recShort.value <= 0) {
+    recLabelTwo.textContent = "Некорректное значение";
+  } else {
+    recQuad.textContent =
+      "Площадь прямоугольника:" +
+      " " +
+      Number(recLong.value) * Number(recShort.value);
+    recPer.textContent =
+      "Периметр прямоугольника" +
+      " " +
+      2 * (Number(recLong.value) + Number(recShort.value));
+  }
+});
 
 // Круг
 const circleRadius = document.querySelector(".circle__radius");

@@ -5,38 +5,58 @@
    justify-content: center;
 }
 
+h1,
 h3 {
    text-align: center;
 }
 
 input:focus {
-   box-shadow: 0px 0px 8px 0px rgb(1, 255, 9)
+   box-shadow: 0px 0px 8px 0px rgb(1, 255, 9);
 }
 
-.box {
+label {
+   margin-bottom: 2px;
+   height: 10px;
+}
+
+.box,
+.rectangle {
    display: flex;
    flex-direction: column;
 }
 
-.box__label {
-   margin-bottom: 2px;
-   height: 10px;
+.box__header,
+.rectangle__header {
+   display: flex;
+   flex-direction: column;
 }
 
 .box__side {
    margin-bottom: 8px;
 }
 
-.box-results {
+.box-results,
+.rectangle-results {
    margin-top: 10px;
    width: 300px;
    height: 60px;
 }
 
-.box__quade {
+.box__quade,
+.rectangle__quad {
    margin-top: 0;
    margin-bottom: 10px;
 }
-.box__perimetr {
+.box__perimetr,
+.rectangle__perimetr {
    margin-top: 0;
+}
+
+.rectangle__long-side,
+.rectangle__short-side {
+   margin-bottom: 4px;
+}
+
+.rectangle__short-side {
+   margin-bottom: 8px;
 }

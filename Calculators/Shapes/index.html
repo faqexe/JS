@@ -11,35 +11,45 @@
     <div class="wrapper">
       <h1>Калькуляторы фигур на JavaScript</h1>
       <div class="box">
-        <h3>Площадь и периметр квадрата</h3>
-        <label class="box__label"></label>
-        <input
-          class="box__side"
-          type="number"
-          id="box"
-          placeholder="Длина стороны"
-        />
-        <button class="box__btn">Рассчитать</button>
+        <div class="box__header">
+          <h3>Площадь и периметр квадрата</h3>
+          <label class="box__label"></label>
+          <input
+            class="box__side"
+            type="number"
+            id="box"
+            placeholder="Длина стороны"
+          />
+          <button class="box__btn">Рассчитать</button>
+        </div>
         <div class="box-results">
           <p class="box__quade"></p>
           <p class="box__perimetr"></p>
         </div>
       </div>
 
-      <h3>Площадь и периметр прямоугольника</h3>
-      <input
-        class="rectangle__long-side"
-        type="number"
-        placeholder="Длинная сторона"
-      />
-      <input
-        class="rectangle__short-side"
-        type="number"
-        placeholder="Короткая сторона"
-      />
-      <button class="rectangle__square">Площадь прямоугольника</button>
-      <button class="rectangle__perimetr">Периметр прямоугольника</button>
-      <p class="rectangle__result"></p>
+      <div class="rectangle">
+        <div class="rectangle__header">
+          <h3>Площадь и периметр прямоугольника</h3>
+          <label class="rec__label-one"></label>
+          <input
+            class="rectangle__long-side"
+            type="number"
+            placeholder="Длинная сторона"
+          />
+          <label class="rec__label-two"></label>
+          <input
+            class="rectangle__short-side"
+            type="number"
+            placeholder="Короткая сторона"
+          />
+          <button class="rectangle__btn">Рассчитать</button>
+        </div>
+        <div class="rectangle-results">
+          <p class="rectangle__quad"></p>
+          <p class="rectangle__perimetr"></p>
+        </div>
+      </div>
 
       <h3>Площадь круга и длину окружности</h3>
       <input type="number" class="circle__radius" placeholder="Радиус круга" />
