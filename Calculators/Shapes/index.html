@@ -51,11 +51,22 @@
         </div>
       </div>
 
-      <h3>Площадь круга и длину окружности</h3>
-      <input type="number" class="circle__radius" placeholder="Радиус круга" />
-      <button class="circle__square">Площадь круга</button>
-      <button class="circle__length">Длина окружности</button>
-      <p class="circle__result"></p>
+      <div class="circle">
+        <div class="circle__header">
+          <h3>Площадь круга и длину окружности</h3>
+          <label class="circle__label"></label>
+          <input
+            type="number"
+            class="circle__radius"
+            placeholder="Радиус круга"
+          />
+          <button class="circle__btn">Рассчитать</button>
+        </div>
+        <div class="circle-results">
+          <p class="circle__quade"></p>
+          <p class="circle__length"></p>
+        </div>
+      </div>
 
       <h3>Площадь треугольника по трем сторонам</h3>
       <input

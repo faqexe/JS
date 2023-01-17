@@ -117,32 +117,43 @@ recButton.addEventListener("click", function () {
 // Круг
 const circleRadius = document.querySelector(".circle__radius");
 const pi = 3.14;
-const circleSquare = document.querySelector(".circle__square");
-const circleLength = document.querySelector(".circle__length");
-const circleResult = document.querySelector(".circle__result");
-
-function cirQuad() {
-  circleResult.textContent = pi * Number(circleRadius.value) ** 2;
-}
-
-function cirLen() {
-  circleResult.textContent = 2 * pi * Number(circleRadius.value);
-}
+const cirLabel = document.querySelector(".circle__label");
+const cirButton = document.querySelector(".circle__btn");
+const cirQuad = document.querySelector(".circle__quade");
+const cirLength = document.querySelector(".circle__length");
 
 circleRadius.addEventListener("blur", function () {
   if (circleRadius.value == "") {
-    circleResult.textContent = "Заполните поле";
-    circleResult.style.color = ATTENTION_COLOR;
-    circleRadius.style.borderColor = ATTENTION_COLOR;
+    cirLabel.textContent = LABEL_TEXT;
+    cirLabel.style.fontSize = LABEL_SIZE;
+    cirLabel.style.color = ATTENTION_COLOR;
+  } else if (circleRadius.value <= 0) {
+    cirLabel.style.fontSize = LABEL_SIZE;
+    cirLabel.style.color = ATTENTION_COLOR;
+    cirLabel.textContent = "Введите значение больше 0";
   } else {
-    circleResult.textContent = "";
-    circleResult.style.color = "";
-    circleRadius.style.borderColor = "";
+    cirLabel.textContent = "";
   }
 });
 
-circleSquare.addEventListener("click", cirQuad);
-circleLength.addEventListener("click", cirLen);
+circleRadius.addEventListener("focus", function () {
+  cirQuad.textContent = "";
+  cirLength.textContent = "";
+  circleRadius.value = "";
+});
+
+cirButton.addEventListener("click", function () {
+  if (circleRadius.value == "") {
+    cirLabel.textContent = "Поле не заполнено";
+  } else if (circleRadius.value <= 0) {
+    cirLabel.textContent = "Некоректное значение";
+  } else {
+    cirQuad.textContent =
+      "Площадь круга:" + " " + pi * Number(circleRadius.value) ** 2;
+    cirLength.textContent =
+      "Длинна окружности:" + " " + 2 * pi * Number(circleRadius.value);
+  }
+});
 
 // Треугольник
 const firstSide = document.querySelector(".triangle__first-side");

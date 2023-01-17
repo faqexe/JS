@@ -20,35 +20,41 @@ label {
 }
 
 .box,
-.rectangle {
+.rectangle,
+.circle {
    display: flex;
    flex-direction: column;
 }
 
 .box__header,
-.rectangle__header {
+.rectangle__header,
+.circle__header {
    display: flex;
    flex-direction: column;
 }
 
-.box__side {
+.box__side,
+.circle__radius {
    margin-bottom: 8px;
 }
 
 .box-results,
-.rectangle-results {
+.rectangle-results,
+.circle-results {
    margin-top: 10px;
    width: 300px;
    height: 60px;
 }
 
 .box__quade,
-.rectangle__quad {
+.rectangle__quad,
+.circle__quade {
    margin-top: 0;
    margin-bottom: 10px;
 }
 .box__perimetr,
-.rectangle__perimetr {
+.rectangle__perimetr,
+.circle__length {
    margin-top: 0;
 }
 
