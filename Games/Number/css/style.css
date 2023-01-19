@@ -1,0 +1,35 @@
+.wrapper {
+   display: grid;
+   place-items: center;
+   min-height: 100vh;
+}
+
+.game {
+   display: grid;
+   grid-template-columns: 500px;
+   grid-template-rows: 50px 50px 50px;
+   gap: 8px;
+}
+
+#number {
+   font-size: 1.2rem;
+   padding: 10px;
+   border: 0;
+   box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+   border-radius: 10px;
+}
+#number:focus {
+   border: 0;
+}
+
+#btn,
+#reload {
+   text-transform: uppercase;
+   font-weight: bold;
+   font-size: 1.2rem;
+}
+
+#btn:hover,
+#reload:hover {
+   cursor: pointer;
+}
