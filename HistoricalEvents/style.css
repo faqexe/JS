@@ -3,9 +3,9 @@
    padding: 0;
 }
 
-html,
 body {
-   min-height: 100%;
+   display: grid;
+   place-items: center;
 }
 
 td {
@@ -13,7 +13,6 @@ td {
    height: 80px;
    text-align: center;
    min-width: 160px;
-   /* width: 100%; */
 }
 
 h1 {
@@ -24,6 +23,15 @@ h1 {
 #year {
    padding: 10px;
    width: 100%;
+   margin-bottom: 12px;
+   border: 0;
+   border-bottom: 1px solid rgba(0, 0, 255, 0.6);
+   transition: all 0.5s;
+}
+
+#year:focus {
+   outline: none;
+   border-bottom: 1px solid rgba(0, 0, 255, 0.3);
 }
 
 #table {
@@ -32,9 +40,6 @@ h1 {
 
 .history {
    max-width: 700px;
-   width: 100%;
-   margin: 0 auto;
-   text-align: center;
    display: flex;
    flex-direction: column;
    align-items: center;

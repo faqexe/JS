@@ -3,7 +3,10 @@
 const div = document.querySelector(".history");
 const year = document.querySelector("#year");
 const table = document.querySelector("#table");
+const err = document.querySelector("#error");
 
+//TODO Дописать функцию, если год введен больше или меньше указанного промежутка
+//TODO Дописать функцию, если введена цифра меньше или больше 4 цифр
 year.addEventListener("keydown", (event) => {
   if (event.code === "Enter") {
     if (events[year.value]) {
@@ -29,6 +32,10 @@ year.addEventListener("keydown", (event) => {
       }
     }
   }
+});
+
+year.addEventListener("focus", () => {
+  year.value = "";
 });
 
 const events = {
