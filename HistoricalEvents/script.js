@@ -5,12 +5,12 @@ const year = document.querySelector("#year");
 const table = document.querySelector("#table");
 const err = document.querySelector("#error");
 
-//TODO Дописать функцию, если год введен больше или меньше указанного промежутка
-//TODO Дописать функцию, если введена цифра меньше или больше 4 цифр
 year.addEventListener("keydown", (event) => {
   if (event.code === "Enter") {
     if (events[year.value]) {
       table.textContent = "";
+      err.textContent = "";
+      err.style.color = "";
 
       for (let event of events[year.value]) {
         let tr = document.createElement("tr");
@@ -30,6 +30,18 @@ year.addEventListener("keydown", (event) => {
 
         table.appendChild(tr);
       }
+    } else if (year.value.length == 0) {
+      table.textContent = "";
+      err.textContent = "Поле не заполнено";
+      err.style.color = "red";
+    } else if (year.value.length < 4 || year.value.length > 4) {
+      table.textContent = "";
+      err.textContent = "Указан некорректный год";
+      err.style.color = "red";
+    } else if (year.value < 2017 || year.value > 2022) {
+      table.textContent = "";
+      err.textContent = "Год не соответствует заданному диапозону";
+      err.style.color = "red";
     }
   }
 });
@@ -38,6 +50,8 @@ year.addEventListener("focus", () => {
   year.value = "";
 });
 
+// Для хранения данных создается объект, который содержит массивы
+// из годов, в которых содержатся объекты с данными по каждому событию
 const events = {
   2017: [
     {
