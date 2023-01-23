@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Horoscope</title>
+  </head>
+  <body>
+    <div class="horoscope">
+      <h1>Гороскоп на 3 дня</h1>
+      <div class="info">
+        <input
+          type="text"
+          id="birthday"
+          placeholder="Дата рождения в формате месяц-день"
+        />
+        <p id="result"></p>
+        <p id="description"></p>
+      </div>
+
+      <div class="radio">
+        <label
+          ><input type="radio" name="day" id="today" checked />Сегодня</label
+        >
+        <label><input type="radio" name="day" id="tomorrow" />Завтра</label>
+        <label><input type="radio" name="day" id="after" />Послезавтра</label>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

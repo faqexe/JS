@@ -1,0 +1,76 @@
+* {
+   margin: 0;
+   padding: 0;
+}
+
+html {
+   height: 100%;
+}
+
+body {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100%;
+   font-size: 1.2rem;
+}
+
+.horoscope {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   width: 600px;
+   height: 300px;
+   padding: 10px;
+}
+
+h1 {
+   margin-bottom: 20px;
+}
+
+.info {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   margin-bottom: 8px;
+   width: 100%;
+}
+
+#result {
+   height: 22px;
+   margin-bottom: 10px;
+}
+
+#description {
+   min-height: 200px;
+   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 10px;
+}
+
+#birthday {
+   margin-bottom: 8px;
+   padding: 10px;
+   border: 0;
+   border-bottom: 1px solid #ccc;
+   transition: all 0.3s;
+   font-size: 1.2rem;
+}
+
+#birthday:focus {
+   outline: none;
+   border-bottom: 1px solid red;
+}
+
+.radio {
+   text-align: center;
+   width: 100%;
+   height: 22px;
+}
+
+.radio > label {
+   margin-right: 10px;
+}
