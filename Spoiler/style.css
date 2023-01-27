@@ -1,0 +1,8 @@
+.spoiler {
+	display: none;
+}
+
+.active {
+   display: block;
+   font-style: italic;
+}
