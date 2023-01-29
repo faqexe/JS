@@ -1,5 +1,5 @@
 "use strict";
-//! Дорабоать функцию поиска в массиве
+//! Доработать функцию поиска в массиве
 
 let field = document.querySelector("#field");
 let message = document.querySelector("#message");
@@ -11,7 +11,8 @@ field.addEventListener("keydown", function (event) {
     // первая буква из поля ввода
     let firstChar = word.charAt(0);
 
-    let check = cities.some((word) => cities.includes(word, 1));
+    // Проверка начинается со второго элемента массива
+    let check = cities.some((word) => cities.includes(word));
 
     if (cities.length === 0) {
       cities.push(word);
@@ -19,6 +20,7 @@ field.addEventListener("keydown", function (event) {
       message.style.color = "green";
       // Проверка совпадения букв
     } else {
+      // Добавить элемент в начало
       cities.unshift(word);
       // ищем последнюю букву в предыдущем элементе массива
       // let lastChar = cities[cities.length - 2].toString().slice(-1);
@@ -27,9 +29,14 @@ field.addEventListener("keydown", function (event) {
       if (lastChar === firstChar) {
         message.textContent = "Переход хода";
         message.style.color = "green";
-      } else {
+      } else if (check) {
+        message.textContent = "Такой город уже был";
+        message.style.color = "red";
+        cities.shift();
+      } else if (lastChar !== firstChar) {
         message.textContent = "Не совпадает";
         message.style.color = "red";
+        // Удалить элемент в начале
         cities.shift();
       }
     }
