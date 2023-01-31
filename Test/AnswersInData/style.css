@@ -1,0 +1,10 @@
+.right {
+	border: 1px solid green;
+}
+.wrong {
+	border: 1px solid red;
+}
+
+#check {
+   margin-top: 25px;
+}
