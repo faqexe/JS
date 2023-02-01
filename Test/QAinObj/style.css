@@ -1,0 +1,10 @@
+.right {
+   border: 1px solid green;
+}
+.wrong {
+   border: 1px solid red;
+}
+
+#button {
+   margin-top: 25px;
+}
