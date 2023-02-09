@@ -1,0 +1,19 @@
+.slider {
+   width: 700px;
+}
+
+#left,
+#right {
+   text-decoration: none;
+   font-size: 2rem;
+}
+
+img {
+   width: 700px;
+   height: 500px;
+}
+
+.arrow {
+   display: flex;
+   justify-content: space-between;
+}
